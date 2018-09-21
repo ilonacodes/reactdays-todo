@@ -1,7 +1,8 @@
 export const t = {
     CREATE_TODO: 'CREATE_TODO',
     LOAD_TODOS: 'LOAD_TODOS',
-    LOAD_TODOS_SUCCESS: 'LOAD_TODOS_SUCCESS'
+    LOAD_TODOS_SUCCESS: 'LOAD_TODOS_SUCCESS',
+    COMPLETE_TODO: 'COMPLETE_TODO'
 };
 
 export const actions = {
@@ -17,5 +18,10 @@ export const actions = {
     loadTodosSuccess: todos => ({
         type: t.LOAD_TODOS_SUCCESS,
         todos
+    }),
+
+    completeTodo: todo => ({
+        type: t.COMPLETE_TODO,
+        todo
     })
 };

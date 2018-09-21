@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {actions} from './actions';
+import {Todo} from './Todo';
 
 class DashboardComponent extends React.Component {
 
@@ -9,11 +10,13 @@ class DashboardComponent extends React.Component {
     }
 
     render() {
-        const {todos} = this.props;
+        const {todos, completeTodo} = this.props;
         return (
             <ul>
                 {todos.map(todo =>
-                    <li key={todo.id}>{todo.title}</li>
+                    <li key={todo.id}>
+                        <Todo todo={todo} completeTodo={completeTodo}/>
+                    </li>
                 )}
             </ul>
         );
@@ -28,7 +31,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadTodos: () => dispatch(actions.loadTodos())
+        loadTodos: () => dispatch(actions.loadTodos()),
+        completeTodo: todo => dispatch(actions.completeTodo(todo))
     }
 };
 
