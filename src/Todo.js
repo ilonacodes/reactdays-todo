@@ -56,7 +56,8 @@ export class Todo extends React.Component {
             return (
                 <div className={this.props.todo.completed ? completed : ''}>
                     <span onClick={() => this.props.completeTodo(this.props.todo)}>{this.props.todo.title}</span>
-                    <button type="button" onClick={() => this.startEditing()}>Edit</button>
+                    <button onClick={() => this.startEditing()}>Edit</button>
+                    <button onClick={() => this.props.deleteTodo(this.props.todo)}>Delete</button>
                 </div>
             );
         }

@@ -43,11 +43,21 @@ function* watchUpdateTodo() {
     yield takeEvery(t.UPDATE_TODO, updateTodo)
 }
 
+function* deleteTodo(action) {
+    yield axios.delete(`${baseUrl}/todos/${action.todo.id}`, action.todo)
+    yield put(actions.loadTodos())
+}
+
+function* watchDeleteTodo() {
+    yield takeEvery(t.DELETE_TODO, deleteTodo)
+}
+
 export function* rootSaga() {
     yield all([
         wacthCreateTodo(),
         watchLoadTodos(),
         watchCompleteTodo(),
-        watchUpdateTodo()
+        watchUpdateTodo(),
+        watchDeleteTodo()
     ])
 }

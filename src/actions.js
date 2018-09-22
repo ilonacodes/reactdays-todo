@@ -3,7 +3,8 @@ export const t = {
     LOAD_TODOS: 'LOAD_TODOS',
     LOAD_TODOS_SUCCESS: 'LOAD_TODOS_SUCCESS',
     COMPLETE_TODO: 'COMPLETE_TODO',
-    UPDATE_TODO: 'UPDATE_TODO'
+    UPDATE_TODO: 'UPDATE_TODO',
+    DELETE_TODO: 'DELETE_TODO'
 };
 
 export const actions = {
@@ -28,6 +29,11 @@ export const actions = {
 
     updateTodo: todo => ({
         type: t.UPDATE_TODO,
+        todo
+    }),
+
+    deleteTodo: todo => ({
+        type: t.DELETE_TODO,
         todo
     })
 };
