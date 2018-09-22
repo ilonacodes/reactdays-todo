@@ -10,6 +10,11 @@ import {ConnectedRouter, routerMiddleware, routerReducer} from 'react-router-red
 import {Route} from 'react-router';
 import {Provider} from 'react-redux';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {injectGlobal} from 'emotion';
+
+injectGlobal`
+    body { background-color: #eaeaea;}
+`;
 
 const history = createHistory();
 const middleware = routerMiddleware(history);

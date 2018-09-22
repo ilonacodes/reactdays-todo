@@ -2,7 +2,7 @@ import axios from 'axios';
 import { all, put, takeEvery } from 'redux-saga/effects'
 import {actions, t} from './actions';
 
-const baseUrl = 'https://apinator.com/api/v1';
+const baseUrl = 'https://restapinator.herokuapp.com/api/v1';
 
 function* createTodo(action) {
     yield axios.post(`${baseUrl}/todos`, action.todo);
@@ -25,7 +25,7 @@ function* watchLoadTodos() {
 function* completeTodo(action) {
     yield axios.put(`${baseUrl}/todos/${action.todo.id}`, {
         ...action.todo,
-        completed: true
+        completed: !action.todo.completed
     });
     yield put(actions.loadTodos())
 }
