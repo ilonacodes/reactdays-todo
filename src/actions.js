@@ -2,7 +2,8 @@ export const t = {
     CREATE_TODO: 'CREATE_TODO',
     LOAD_TODOS: 'LOAD_TODOS',
     LOAD_TODOS_SUCCESS: 'LOAD_TODOS_SUCCESS',
-    COMPLETE_TODO: 'COMPLETE_TODO'
+    COMPLETE_TODO: 'COMPLETE_TODO',
+    UPDATE_TODO: 'UPDATE_TODO'
 };
 
 export const actions = {
@@ -22,6 +23,11 @@ export const actions = {
 
     completeTodo: todo => ({
         type: t.COMPLETE_TODO,
+        todo
+    }),
+
+    updateTodo: todo => ({
+        type: t.UPDATE_TODO,
         todo
     })
 };

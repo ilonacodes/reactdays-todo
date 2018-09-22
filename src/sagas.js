@@ -34,10 +34,20 @@ function* watchCompleteTodo() {
     yield takeEvery(t.COMPLETE_TODO, completeTodo)
 }
 
+function* updateTodo(action) {
+    yield axios.put(`${baseUrl}/todos/${action.todo.id}`, action.todo);
+    yield put(actions.loadTodos());
+}
+
+function* watchUpdateTodo() {
+    yield takeEvery(t.UPDATE_TODO, updateTodo)
+}
+
 export function* rootSaga() {
     yield all([
         wacthCreateTodo(),
         watchLoadTodos(),
-        watchCompleteTodo()
+        watchCompleteTodo(),
+        watchUpdateTodo()
     ])
 }

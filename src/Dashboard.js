@@ -10,12 +10,12 @@ class DashboardComponent extends React.Component {
     }
 
     render() {
-        const {todos, completeTodo} = this.props;
+        const {todos, completeTodo, updateTodo} = this.props;
         return (
             <ul>
                 {todos.map(todo =>
                     <li key={todo.id}>
-                        <Todo todo={todo} completeTodo={completeTodo}/>
+                        <Todo todo={todo} completeTodo={completeTodo} updateTodo={updateTodo}/>
                     </li>
                 )}
             </ul>
@@ -32,7 +32,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         loadTodos: () => dispatch(actions.loadTodos()),
-        completeTodo: todo => dispatch(actions.completeTodo(todo))
+        completeTodo: todo => dispatch(actions.completeTodo(todo)),
+        updateTodo: todo => dispatch(actions.updateTodo(todo))
     }
 };
 
