@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import {todosReducer} from './reducers';
 import {rootSaga} from './sagas';
-import createHistory from "history/createBrowserHistory";
+import createHistory from 'history/createBrowserHistory';
 import createSagaMiddleware from 'redux-saga';
 import {ConnectedRouter, routerMiddleware, routerReducer} from 'react-router-redux';
 import {Route} from 'react-router';
@@ -12,12 +12,19 @@ import {Provider} from 'react-redux';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import {injectGlobal} from 'emotion';
 
+console.log('Hi there!');
+
 injectGlobal`
     body { background-color: #eaeaea;}
 `;
 
-const history = createHistory();
+const basePath = process.env.NODE_ENV === 'production' ?
+    '/reactdays-todo/' :
+    '/';
+
+const history = createHistory({basename: basePath});
 const middleware = routerMiddleware(history);
+
 const sagaMiddleware = createSagaMiddleware();
 
 let store = createStore(
@@ -34,7 +41,7 @@ ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
-                <Route exact path="/" component={App} />
+                <Route exact path="/" component={App}/>
             </div>
         </ConnectedRouter>
     </Provider>,
