@@ -21,7 +21,6 @@ const FlexWrapper = styled('div')`
     
     span {
         line-height: 1.5;
-        margin-left: 10px;
     }
 `;
 
@@ -61,7 +60,7 @@ const checkbox = css`
     border-radius: 4px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
     margin-right: 5px;
-    line-height: 1.2;
+    line-height: 1.4;
  } 
 `;
 

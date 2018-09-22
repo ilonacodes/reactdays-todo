@@ -8,7 +8,7 @@ import {css} from 'emotion';
 export const Wrapper = styled('div')`
     background-color: white;
     padding: 15px;
-    width: 400px;
+    width: 320px;
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
